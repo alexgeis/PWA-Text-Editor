@@ -54,7 +54,7 @@ First I reviewed the package.json files in the provided starter code to ensure I
 
 Next, I added asset caching logic to the service worker source file. Once caching was verified, I began to test and verify the connection to the IndexDB (and also local storage for the backup). The database.js and editor.js files needed some updates to properly talk to each other, but I was finally able to properly pull from storage upon pageload (and save to storage upon idle state or PWA download).
 
-Finally, I built out my webpack and tested all features to satisfaction. After downloading the PWA application I confirmed that my stored results were still populating the application. The last step was to push all final updated to github and deploy via Heroku (both links can be accessed below).
+Finally, I built out my webpack and tested all features to satisfaction. The manifest and service worker were confirmed to be active. After downloading the PWA application I confirmed that my stored results were still populating the application. The last step was to push all final updated to github and deploy via Heroku (both links can be accessed below).
 
 ## Heroku Issues
 
