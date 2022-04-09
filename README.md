@@ -56,8 +56,34 @@ Next, I added asset caching logic to the service worker source file. Once cachin
 
 Finally, I built out my webpack and tested all features to satisfaction. After downloading the PWA application I confirmed that my stored results were still populating the application. The last step was to push all final updated to github and deploy via Heroku (both links can be accessed below).
 
+## Heroku Issues
+
+Heroku deployment was a difficult process, so detailed below are the steps I took to finally deploy correctly.
+
+I first tried [all troubleshooting steps Heroku provides for Node.js](https://devcenter.heroku.com/articles/troubleshooting-node-deploys), and also copied into a fresh git repository [as suggested in this Stack Overflow article](https://stackoverflow.com/questions/65404309/heroku-error-during-git-push-deployment-the-same-version-of-this-code-has-alr/65436551#65436551).
+Though these steps did not solve my issues, I suggest trying them if the steps below are unsuccessful.
+
+Here are the steps I took to deploy successfully:
+
+1. Within /client/package.json, I made 2 updates:
+
+   - added the following to the package.json file:
+
+   `"engines": { "node": "16.x" }`
+
+   - moved all modules within "devDependencies" to "dependencies" object (my "devDependencies" object was empty upon successful deploy)
+
+2. Created the Heroku app URL but _did not push code_ - `heroku create <app-name>` (e.g. `heroku create pwa-text-editor-DU-FS`)
+
+3. In the "Settings" section of my Heroku app in the browser, I added the Node.js buildpack:
+   ![Node.js buildpack](./Assets/node.js-buildpack.screenshot.png)
+
+4. Pushed my production code with `git push heroku main`
+
 ## Deployment Details
 
 Heroku Deployment: [PWA-Text-Editor - Heroku](https://pwa-text-editor-ang.herokuapp.com/)
+
 Github: [PWA-Text-Editor - Github](https://github.com/alexgeis/PWA-Text-Editor)
+
 ![Screenshot of J.A.T.E. PWA application](./Assets/JATE-PWA-screenshot.png)
